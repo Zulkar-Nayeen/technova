@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TechNova – Electronics Store Bangladesh</title>
+<meta name="description" content="TechNova: smartphones, laptops, routers, gaming gear and more, delivered across Bangladesh.">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{ink:'#111827',slate2:'#64748B',soft:'#F8FAFC',accent:'#2563EB',ok:'#16A34A',bad:'#DC2626'},fontFamily:{sans:['Manrope','system-ui','sans-serif']}}}}
+</script>
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{background:#fff;color:#111827}
+.card{transition:box-shadow .2s,transform .2s}.card:hover{box-shadow:0 8px 24px -12px rgba(17,24,39,.25);transform:translateY(-2px)}
+:focus-visible{outline:2px solid #2563EB;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body class="font-sans antialiased">
+
+<div class="bg-ink text-white text-sm text-center py-2 px-4">Free delivery inside Dhaka on orders over ৳50,000 · Use code <b>NOVA10</b> for 10% off</div>
+
+<header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center gap-4">
+    <a href="#top" class="text-xl font-extrabold tracking-tight">Tech<span class="text-accent">Nova</span></a>
+    <nav class="hidden lg:flex gap-6 text-sm font-medium text-slate2 ml-4">
+      <a class="hover:text-ink" href="#categories">Categories</a><a class="hover:text-ink" href="#best">Best sellers</a><a class="hover:text-ink" href="#offers">Offers</a><a class="hover:text-ink" href="#brands">Brands</a>
+    </nav>
+    <div class="relative flex-1 max-w-md ml-auto">
+      <input id="q" type="search" placeholder="Search phones, routers, laptops" aria-label="Search products" class="w-full h-10 rounded-full bg-soft border border-slate-200 pl-10 pr-4 text-sm focus:bg-white focus:border-accent outline-none">
+      <svg class="absolute left-3 top-2.5 w-5 h-5 text-slate2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <ul id="sugg" class="hidden absolute top-12 inset-x-0 bg-white border border-slate-200 rounded-xl shadow-lg overflow-hidden text-sm"></ul>
+    </div>
+    <button id="openCart" class="relative h-10 px-4 rounded-full bg-ink text-white text-sm font-semibold flex items-center gap-2" aria-label="Open cart">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12zM6 6 5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+      <span class="hidden sm:inline">Cart</span><span id="count" class="bg-accent rounded-full min-w-5 h-5 px-1 text-xs grid place-items-center">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+<section class="bg-soft">
+  <div class="max-w-7xl mx-auto px-4 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <p class="text-sm font-semibold text-accent mb-3">Official warranty on every product</p>
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.05] tracking-tight">Better tech, delivered to your door.</h1>
+      <p class="mt-5 text-slate2 text-lg max-w-md">Phones, laptops, routers and gaming gear from brands you trust, with bKash, Nagad and cash on delivery.</p>
+      <div class="mt-8 flex gap-3">
+        <a href="#best" class="h-12 px-6 rounded-full bg-ink text-white font-semibold grid place-items-center hover:bg-black">Shop best sellers</a>
+        <a href="#categories" class="h-12 px-6 rounded-full border border-slate-300 font-semibold grid place-items-center hover:border-ink">Browse categories</a>
+      </div>
+    </div>
+    <div class="relative aspect-[5/4] rounded-3xl bg-white border border-slate-200 grid place-items-center overflow-hidden">
+      <svg viewBox="0 0 400 320" class="w-full h-full p-6" aria-label="Laptop and phone illustration">
+        <rect x="70" y="50" width="260" height="170" rx="12" fill="#111827"/><rect x="80" y="60" width="240" height="150" rx="6" fill="#2563EB"/>
+        <rect x="40" y="224" width="320" height="14" rx="7" fill="#64748B"/>
+        <rect x="290" y="130" width="70" height="130" rx="12" fill="#fff" stroke="#111827" stroke-width="6"/><rect x="300" y="142" width="50" height="90" rx="4" fill="#F8FAFC"/>
+        <path d="M100 170 140 130 170 155 220 100 300 80" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="absolute bottom-4 left-4 bg-white rounded-xl shadow px-4 py-2 text-sm"><b class="text-ok">In stock</b> · Delivery in 1–3 days</div>
+    </div>
+  </div>
+</section>
+
+<section id="categories" class="max-w-7xl mx-auto px-4 py-14">
+  <h2 class="text-2xl font-bold">Shop by category</h2>
+  <div id="cats" class="mt-6 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3"></div>
+</section>
+
+<section id="best" class="max-w-7xl mx-auto px-4 pb-14">
+  <div class="flex items-end justify-between flex-wrap gap-3">
+    <h2 class="text-2xl font-bold" id="gridTitle">Best sellers</h2>
+    <div id="filters" class="flex gap-2 text-sm"></div>
+  </div>
+  <div id="grid" class="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+  <p id="empty" class="hidden mt-8 text-center text-slate2">No products match your search. Try a different word or choose another category.</p>
+</section>
+
+<section id="offers" class="bg-ink text-white">
+  <div class="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-[1fr_auto] gap-6 items-center">
+    <div><h2 class="text-3xl font-bold">Save 10% on your first order</h2><p class="mt-2 text-slate-300">Enter <b class="text-white">NOVA10</b> in your cart. Valid on orders above ৳5,000.</p></div>
+    <button data-coupon class="h-12 px-6 rounded-full bg-white text-ink font-semibold">Copy code</button>
+  </div>
+</section>
+
+<section id="brands" class="max-w-7xl mx-auto px-4 py-14">
+  <h2 class="text-2xl font-bold">Popular brands</h2>
+  <div class="mt-6 grid grid-cols-3 md:grid-cols-6 gap-3 text-center font-bold text-slate2">
+    <div class="py-5 rounded-xl bg-soft">Samsung</div><div class="py-5 rounded-xl bg-soft">Xiaomi</div><div class="py-5 rounded-xl bg-soft">MikroTik</div><div class="py-5 rounded-xl bg-soft">TP-Link</div><div class="py-5 rounded-xl bg-soft">Logitech</div><div class="py-5 rounded-xl bg-soft">Asus</div>
+  </div>
+</section>
+
+<section class="bg-soft">
+  <div class="max-w-7xl mx-auto px-4 py-14">
+    <h2 class="text-2xl font-bold">What customers say</h2>
+    <p class="text-xs text-slate2 mt-1">Sample testimonials for design preview.</p>
+    <div class="mt-6 grid md:grid-cols-3 gap-4">
+      <figure class="bg-white rounded-2xl p-6 border border-slate-200"><blockquote class="text-slate-700">Ordered a router on Monday, it reached Chattogram by Wednesday. Packaging was solid.</blockquote><figcaption class="mt-4 text-sm font-semibold">Rafi, Chattogram</figcaption></figure>
+      <figure class="bg-white rounded-2xl p-6 border border-slate-200"><blockquote class="text-slate-700">Paid with bKash and got the confirmation right away. Warranty card was included.</blockquote><figcaption class="mt-4 text-sm font-semibold">Nusrat, Dhaka</figcaption></figure>
+      <figure class="bg-white rounded-2xl p-6 border border-slate-200"><blockquote class="text-slate-700">Prices are clear and there are no surprise charges at checkout.</blockquote><figcaption class="mt-4 text-sm font-semibold">Tanvir, Sylhet</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-3xl mx-auto px-4 py-14 text-center">
+  <h2 class="text-2xl font-bold">Get deals in your inbox</h2>
+  <p class="text-slate2 mt-2">One email a week. Unsubscribe any time.</p>
+  <form id="nl" class="mt-6 flex gap-2 max-w-md mx-auto" novalidate>
+    <input id="nlEmail" type="email" required placeholder="you@example.com" aria-label="Email" class="flex-1 h-12 rounded-full border border-slate-300 px-5 outline-none focus:border-accent">
+    <button class="h-12 px-6 rounded-full bg-accent text-white font-semibold">Subscribe</button>
+  </form>
+</section>
+</main>
+
+<footer class="bg-ink text-slate-300 text-sm">
+  <div class="max-w-7xl mx-auto px-4 py-12 grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+    <div><div class="text-white text-lg font-extrabold">TechNova</div><p class="mt-3">Electronics you can trust, delivered across Bangladesh.</p></div>
+    <div><h3 class="text-white font-semibold mb-3">Shop</h3><ul class="space-y-2"><li>Smartphones</li><li>Laptops</li><li>Networking</li><li>Gaming</li></ul></div>
+    <div><h3 class="text-white font-semibold mb-3">Support</h3><ul class="space-y-2"><li>Track your order</li><li>Warranty policy</li><li>Returns</li><li>Delivery zones</li></ul></div>
+    <div><h3 class="text-white font-semibold mb-3">Contact</h3><p>support@technova.example<br>+880 1XXX-XXXXXX<br>Dhaka, Bangladesh</p></div>
+  </div>
+  <div class="border-t border-white/10 py-4 text-center text-xs">© 2026 TechNova. Design preview with sample products.</div>
+</footer>
+
+<!-- Cart drawer -->
+<div id="shade" class="hidden fixed inset-0 bg-ink/40 z-40"></div>
+<aside id="drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 translate-x-full transition-transform flex flex-col" aria-label="Shopping cart">
+  <div class="p-5 border-b border-slate-200 flex justify-between items-center"><h2 class="text-lg font-bold">Your cart</h2><button id="closeCart" class="text-slate2 text-2xl leading-none" aria-label="Close cart">×</button></div>
+  <div id="items" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+  <div class="p-5 border-t border-slate-200 space-y-3 text-sm">
+    <div class="flex gap-2"><input id="coupon" placeholder="Coupon code" class="flex-1 h-10 rounded-lg border border-slate-300 px-3 uppercase"><button id="applyC" class="h-10 px-4 rounded-lg bg-soft border border-slate-200 font-semibold">Apply</button></div>
+    <div class="flex gap-4"><label class="flex items-center gap-1"><input type="radio" name="zone" value="60" checked> Inside Dhaka ৳60</label><label class="flex items-center gap-1"><input type="radio" name="zone" value="120"> Outside Dhaka ৳120</label></div>
+    <div class="flex justify-between"><span class="text-slate2">Subtotal</span><span id="sub"></span></div>
+    <div class="flex justify-between"><span class="text-slate2">Discount</span><span id="disc" class="text-ok"></span></div>
+    <div class="flex justify-between"><span class="text-slate2">Shipping</span><span id="ship"></span></div>
+    <div class="flex justify-between text-base font-bold"><span>Total</span><span id="total"></span></div>
+    <button id="checkout" class="w-full h-12 rounded-full bg-ink text-white font-semibold">Proceed to checkout</button>
+  </div>
+</aside>
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-ink text-white text-sm rounded-full px-5 py-3 z-[60] opacity-0 pointer-events-none transition-opacity" role="status"></div>
+
+<script>
+const P=[
+{id:1,n:'Galaxy S24 128GB',b:'Samsung',c:'Smartphones',p:89900,o:99900,r:4.7,e:'📱'},
+{id:2,n:'Redmi Note 13 Pro',b:'Xiaomi',c:'Smartphones',p:36500,o:39900,r:4.5,e:'📱'},
+{id:3,n:'Vivobook 15 i5 16GB',b:'Asus',c:'Laptops',p:78500,o:84000,r:4.6,e:'💻'},
+{id:4,n:'hAP ax3 Router',b:'MikroTik',c:'Networking',p:15800,o:17500,r:4.8,e:'📡'},
+{id:5,n:'Archer AX55 WiFi 6',b:'TP-Link',c:'Networking',p:9800,o:11200,r:4.5,e:'📡'},
+{id:6,n:'MX Master 3S Mouse',b:'Logitech',c:'Gaming',p:12500,o:13900,r:4.9,e:'🖱️'},
+{id:7,n:'27" 165Hz Gaming Monitor',b:'Asus',c:'Monitors',p:34900,o:38500,r:4.4,e:'🖥️'},
+{id:8,n:'Galaxy Buds2 Pro',b:'Samsung',c:'Audio',p:17900,o:21000,r:4.6,e:'🎧'}];
+const C=[['Smartphones','📱'],['Laptops','💻'],['Networking','📡'],['Monitors','🖥️'],['Gaming','🎮'],['Audio','🎧'],['Smart Home','🏠']];
+const $=s=>document.querySelector(s),fmt=n=>'৳'+n.toLocaleString('en-IN');
+let cart=[],cat='All',term='',disc=0;
+try{cart=JSON.parse(localStorage.getItem('tn-cart')||'[]')}catch(e){}
+const save=()=>{try{localStorage.setItem('tn-cart',JSON.stringify(cart))}catch(e){}};
+function toast(m){const t=$('#toast');t.textContent=m;t.style.opacity=1;clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.opacity=0,2600)}
+
+$('#cats').innerHTML=C.map(([n,e])=>`<button data-cat="${n}" class="card rounded-2xl bg-soft border border-slate-200 py-5 text-center"><div class="text-3xl">${e}</div><div class="mt-2 text-sm font-semibold">${n}</div></button>`).join('');
+$('#filters').innerHTML=['All',...C.map(c=>c[0])].slice(0,5).map(n=>`<button data-cat="${n}" class="f px-4 h-9 rounded-full border border-slate-300 font-medium">${n}</button>`).join('');
+
+function render(){
+  const l=P.filter(p=>(cat==='All'||p.c===cat)&&(p.n+p.b+p.c).toLowerCase().includes(term));
+  $('#gridTitle').textContent=cat==='All'?'Best sellers':cat;
+  $('#empty').classList.toggle('hidden',l.length>0);
+  $('#grid').innerHTML=l.map(p=>`<article class="card bg-white rounded-2xl border border-slate-200 overflow-hidden flex flex-col">
+    <div class="relative bg-soft aspect-square grid place-items-center text-6xl">${p.e}<span class="absolute top-3 left-3 bg-bad text-white text-xs font-bold rounded-full px-2 py-0.5">-${Math.round((1-p.p/p.o)*100)}%</span></div>
+    <div class="p-4 flex flex-col flex-1"><div class="text-xs text-slate2">${p.b}</div><h3 class="font-semibold leading-snug mt-0.5">${p.n}</h3>
+    <div class="text-xs text-slate2 mt-1"><span class="text-amber-500">★</span> ${p.r}</div>
+    <div class="mt-2"><span class="font-bold">${fmt(p.p)}</span> <s class="text-xs text-slate2">${fmt(p.o)}</s></div>
+    <button data-add="${p.id}" class="mt-3 h-10 rounded-full bg-ink text-white text-sm font-semibold hover:bg-accent transition-colors">Add to cart</button></div></article>`).join('');
+  document.querySelectorAll('.f').forEach(b=>{const on=b.dataset.cat===cat;b.className='f px-4 h-9 rounded-full border font-medium '+(on?'bg-ink text-white border-ink':'border-slate-300')});
+}
+function totals(){
+  const sub=cart.reduce((s,i)=>s+i.p*i.q,0),d=Math.round(sub*disc),sh=cart.length?+document.querySelector('[name=zone]:checked').value:0;
+  return{sub,d,sh,t:sub-d+sh};
+}
+function drawCart(){
+  $('#count').textContent=cart.reduce((s,i)=>s+i.q,0);
+  $('#items').innerHTML=cart.length?cart.map(i=>`<div class="flex gap-3 items-center"><div class="w-16 h-16 rounded-xl bg-soft grid place-items-center text-3xl">${i.e}</div>
+   <div class="flex-1 text-sm"><div class="font-semibold">${i.n}</div><div class="text-slate2">${fmt(i.p)}</div>
+   <div class="mt-1 flex items-center gap-2"><button data-q="${i.id}:-1" class="w-7 h-7 rounded-full border border-slate-300" aria-label="Decrease">−</button><span>${i.q}</span><button data-q="${i.id}:1" class="w-7 h-7 rounded-full border border-slate-300" aria-label="Increase">+</button><button data-rm="${i.id}" class="ml-auto text-bad text-xs">Remove</button></div></div></div>`).join(''):'<p class="text-center text-slate2 mt-16">Your cart is empty. Add a product to get started.</p>';
+  const t=totals();$('#sub').textContent=fmt(t.sub);$('#disc').textContent=t.d?'−'+fmt(t.d):'–';$('#ship').textContent=t.sh?fmt(t.sh):'–';$('#total').textContent=fmt(t.t);save();
+}
+const open=v=>{$('#drawer').classList.toggle('translate-x-full',!v);$('#shade').classList.toggle('hidden',!v)};
+
+document.addEventListener('click',e=>{
+  const g=s=>e.target.closest(s);let x;
+  if(x=g('[data-cat]')){cat=x.dataset.cat;render();document.getElementById('best').scrollIntoView()}
+  else if(x=g('[data-add]')){const p=P.find(p=>p.id==x.dataset.add),i=cart.find(i=>i.id==p.id);i?i.q++:cart.push({...p,q:1});drawCart();toast(p.n+' added to cart')}
+  else if(x=g('[data-q]')){const[id,d]=x.dataset.q.split(':'),i=cart.find(i=>i.id==id);i.q+=+d;if(i.q<1)cart=cart.filter(c=>c!==i);drawCart()}
+  else if(x=g('[data-rm]')){cart=cart.filter(i=>i.id!=x.dataset.rm);drawCart()}
+  else if(g('#openCart'))open(true);
+  else if(g('#closeCart')||g('#shade'))open(false);
+  else if(g('[data-coupon]')){try{navigator.clipboard.writeText('NOVA10')}catch(_){}toast('Code NOVA10 copied')}
+  else if(g('#applyC')){const c=$('#coupon').value.trim().toUpperCase(),t=totals();
+    if(c==='NOVA10'&&t.sub>=5000){disc=.1;toast('Coupon applied: 10% off')}else{disc=0;toast(c==='NOVA10'?'Add ৳'+(5000-t.sub).toLocaleString('en-IN')+' more to use this coupon':'This coupon code is not valid')}drawCart()}
+  else if(g('#checkout'))toast(cart.length?'Checkout needs the Supabase backend, which is not connected in this design preview':'Add a product before checking out');
+  if(!g('#q')&&!g('#sugg'))$('#sugg').classList.add('hidden');
+});
+document.addEventListener('change',e=>{if(e.target.name==='zone')drawCart()});
+$('#q').addEventListener('input',e=>{
+  term=e.target.value.trim().toLowerCase();render();
+  const m=term?P.filter(p=>(p.n+p.b).toLowerCase().includes(term)).slice(0,4):[];
+  $('#sugg').innerHTML=m.map(p=>`<li><button data-add="${p.id}" class="w-full text-left px-4 py-2.5 hover:bg-soft flex justify-between"><span>${p.e} ${p.n}</span><span class="text-slate2">${fmt(p.p)}</span></button></li>`).join('')||(term?'<li class="px-4 py-3 text-slate2">No matches found</li>':'');
+  $('#sugg').classList.toggle('hidden',!term);
+});
+$('#nl').addEventListener('submit',e=>{e.preventDefault();const v=$('#nlEmail').value;
+  /^\S+@\S+\.\S+$/.test(v)?(toast('Thanks! Newsletter signup is a preview and was not saved'),e.target.reset()):toast('Enter a valid email address')});
+render();drawCart();
+</script>
+</body>
+</html>
